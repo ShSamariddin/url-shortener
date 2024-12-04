@@ -2,7 +2,7 @@ package url_shortner
 
 import (
 	"fmt"
-	"url-shortener/cmd/internal/config"
+	"url-shortener/internal/config"
 )
 
 func main() {
