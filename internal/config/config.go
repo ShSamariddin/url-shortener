@@ -18,17 +18,17 @@ type HTTPServer struct {
 	IdleTimeout string `yaml:"idle_timeout" env-required:"true"`
 }
 
-func MustLoad(fileName string) Config {
+func MustLoad() Config {
 	configPath := os.Getenv("CONFIG_PATH")
 	if configPath == "" {
 		log.Fatal("CONFIG_PATH is not set")
 	}
-	data, err := os.ReadFile(fileName)
+	data, err := os.ReadFile(configPath)
 	if err != nil {
 		panic(err)
 	}
 	var config Config
-	err = yaml.Unmarshal(data, config)
+	err = yaml.Unmarshal(data, &config)
 	if err != nil {
 		log.Fatal("Can't unmarshal config")
 	}

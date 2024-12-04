@@ -1,4 +1,4 @@
-package url_shortner
+package main
 
 import (
 	"fmt"
@@ -6,6 +6,6 @@ import (
 )
 
 func main() {
-	cfg := config.MustLoad("/cmd/config/local.yaml")
+	cfg := config.MustLoad()
 	fmt.Println(cfg)
 }
